@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd 
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+	xmlns:context="http://www.springframework.org/schema/context"
+ default-init-method="myInit" default-destroy-method="myDestroy">
+        
+        
+
+<bean id="ucgen" class="com.fatih.SpringDemo2.Ucgen" autowire="byName" />
+
+<!-- <bean id="shape" class="com.fatih.example.Ucgen" autowire="byName" /> 
+
+bu durumda main içinde shape id li bir bean çağırabiliriz...
+
+-->
+
+
+<!-- <bean id="daire" class="com.fatih.SpringDemo2.Daire">
+	
+</bean> -->
+
+
+
+<bean id="nokta1" class="com.fatih.SpringDemo2.Nokta">
+
+	<property name="x" value="0"/>
+	<property name="y" value="12"/>
+	
+</bean>
+
+<bean id="merkez" class="com.fatih.SpringDemo2.Nokta">
+	<qualifier value="daireMerkez" />
+	<property name="x" value="3"/>
+	<property name="y" value="4"/>
+	
+</bean>
+
+<bean id="nokta3" class="com.fatih.SpringDemo2.Nokta">
+
+	<property name="x" value="23"/>
+	<property name="y" value="25"/>
+	
+</bean> 
+
+<!-- <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" /> -->
+
+
+<context:annotation-config />
+<context:component-scan base-package="com.fatih.SpringDemo2"/>
+
+
+</beans>
